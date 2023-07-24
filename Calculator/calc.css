@@ -1,0 +1,15 @@
+fieldset{
+    width:max-content;
+    text-align: center;
+    margin-left: 525px;
+    margin-top: 150px;
+}
+
+.display{
+    width: auto;
+    align-self: auto;
+}
+
+.button{
+    padding: 15px;
+}
