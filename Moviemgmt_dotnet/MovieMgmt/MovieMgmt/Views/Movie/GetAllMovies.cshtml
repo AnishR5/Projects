@@ -1,0 +1,33 @@
+﻿@using BOL
+
+@{
+List < Movie > movies= ViewBag.movies;
+}
+
+@{
+    <table>
+    <thead>
+    <tr>
+    <td> Mid</td>
+                <td> mname</td>
+                <td> mdesc</td>
+                <td> director id</td>
+                <td> cast</td>
+                <td> duration</td>
+    </tr>
+    </thead>
+    <tbody>
+                @foreach (Movie m in movies)
+                {
+                    <tr>
+                    <td>@m.mId</td>
+                    <td>@m.mName</td>
+                    <td>@m.mDescription</td>
+                    <td>@m.mDirectorID</td>
+                    <td>@m.cast</td>
+                    <td>@m.mins</td>
+                    </tr>
+                }
+            </tbody>
+    </table>
+}
