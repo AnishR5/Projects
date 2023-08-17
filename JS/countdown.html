@@ -1,0 +1,120 @@
+<html>
+    <head>
+        <style>
+            body {
+                text-align: center;
+                background: #00ecb9;
+                font-family: sans-serif;
+                font-weight: 100;
+            }
+           
+            /* Styling for heading */
+            h1 {
+                color: rgb(255, 255, 255);
+                font-weight: 100;
+                font-size: 40px;
+                margin: 40px 0px 20px;
+            }
+            #clockdiv {
+                font-family: sans-serif;
+                color: #fff;
+                display: inline-block;
+                font-weight: 100;
+                text-align: center;
+                font-size: 30px;
+            }
+            #clockdiv > div {
+                padding: 10px;
+                border-radius: 3px;
+                background: #00bf96;
+                display: inline-block;
+            }
+            #clockdiv div > span {
+                padding: 15px;
+                border-radius: 3px;
+                background: #00816a;
+                display: inline-block;
+            }
+
+            #dateform{
+                margin: 40px 0px 20px;
+                font-size: 15px;
+                font-weight: 400;
+            }
+ 
+            /* Style for visible text */
+            .smalltext {
+                padding-top: 5px;
+                font-size: 16px;
+            }
+        
+        </style>
+        <script>
+            startCount=()=>{
+                const inputDate = document.getElementById("inputDate").value;
+            let deadline=new Date(inputDate).getTime();
+            let x=setInterval(()=>{
+                let now=new Date().getTime();
+                let diff=deadline-now;
+                let days=Math.floor(diff/(1000*60*60*24));
+                let hours=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+                let minutes=Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                document.getElementById("day")
+                        .innerHTML = days;
+                document.getElementById("hour")
+                        .innerHTML = hours;
+                document.getElementById("minute")
+                        .innerHTML = minutes;
+                document.getElementById("second")
+                        .innerHTML = seconds;
+                if(diff<0)
+                {
+                    clearInterval(x);
+                    document.getElementById("counter").innerHTML="Time over"
+                }
+            },1000);
+            }
+        </script>
+
+    </head>
+    <body>
+        
+            <form id="dateForm">
+            <label for="inputDate">Enter a date:</label>
+            <input type="date" id="inputDate" name="inputDate">
+            <button type="button" onclick="startCount()">Start Countdown</button>
+            <h1>Countdown Clock</h1>
+        <div id="clockdiv">
+            <div>
+               
+                <!-- Show No. of days -->
+                <span class="days" id="day">0</span>
+                <div class="smalltext">Days</div>
+            </div>
+            <div>
+               
+                <!-- Show no.of hours -->
+                <span class="hours" id="hour">0</span>
+                <div class="smalltext">Hours</div>
+            </div>
+            <div>
+               
+                <!-- Show no. of minutes -->
+                <span class="minutes" id="minute">0</span>
+                <div class="smalltext">Minutes</div>
+            </div>
+            <div>
+               
+                <!-- Show seconds -->
+                <span class="seconds" id="second">0</span>
+                <div class="smalltext">Seconds</div>
+            </div>
+        </div>
+        </form>
+       
+        
+       
+        
+    </body>
+</html>
